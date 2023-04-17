@@ -1,7 +1,8 @@
-import React from 'react'
+import React from 'react';
 import { Poppins } from 'next/font/google';
 
-import './globals.css'
+import Header from './components/Header';
+import './globals.css';
 
 const poppins = Poppins({
     weight: ['400', '700'],
@@ -13,20 +14,15 @@ export const metadata = {
     description: 'Web development tutorial',
 }
 
-export default function RootLayout({
-    children,
-}: {
-    children: React.ReactNode
-}) {
+export default function RootLayout({ children }) {
     return (
-        <html lang="en">
+        <html lang='en'>
             <body className={ poppins.className }>
-                <main>
-                    <main className='container'>
-                        {children}
-                    </main>
+                <Header />
+                <main className='container'>
+                    {children}
                 </main>
             </body>
         </html>
-    )
+    );
 }
