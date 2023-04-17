@@ -1,4 +1,9 @@
-import React from 'react';
+import React from "react";
+
+export const metadata = {
+    title: 'Traversy Media | About',
+    description: 'About Traversy Media',
+}
 
 const AboutPage = () => {
     return <div>
