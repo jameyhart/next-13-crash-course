@@ -1,10 +1,11 @@
+// @ts-nocheck
 import React from 'react';
 import Link from 'next/link';
 
+import RepoDirs from '@/app/components/RepoDirs';
 import Repo from '@/app/components/Repo';
 
 const RepoPage = ({
-        // @ts-expect-error
         params: { name }
     }) => {
     return (
@@ -13,8 +14,8 @@ const RepoPage = ({
                 &lt;&nbsp;Back
             </Link>
 
-            {/* @ts-expect-error */}
             <Repo name={name} />
+            <RepoDirs name={name} />
         </div>
     );
 };

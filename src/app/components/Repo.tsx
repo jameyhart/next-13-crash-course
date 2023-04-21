@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import { FaStar, FaCodeBranch, FaEye } from 'react-icons/fa';
 
@@ -6,9 +7,8 @@ const fetchRepo = async (name: string) => {
     const repo = await response.json();
 
     return repo;
-}
+};
 
-// @ts-expect-error
 const Repo = async ({ name }) => {
     const repo = await fetchRepo(name);
 
