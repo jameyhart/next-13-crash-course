@@ -1,5 +1,5 @@
 // @ts-nocheck
-import React from 'react';
+import React, { Suspense } from 'react';
 import Link from 'next/link';
 
 import RepoDirs from '@/app/components/RepoDirs';
@@ -14,8 +14,23 @@ const RepoPage = ({
                 &lt;&nbsp;Back
             </Link>
 
-            <Repo name={name} />
-            <RepoDirs name={name} />
+            {/* Repository */}
+            <Suspense fallback={
+                <div>
+                    Loading repository...
+                </div>
+            }>
+                <Repo name={name} />
+            </Suspense>
+
+            {/* Directories */}
+            <Suspense fallback={
+                <div>
+                    Loading directories...
+                </div>
+            }>
+                <RepoDirs name={name} />
+            </Suspense>
         </div>
     );
 };
