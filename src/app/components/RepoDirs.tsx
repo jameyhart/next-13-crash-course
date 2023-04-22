@@ -3,7 +3,11 @@ import React from 'react';
 import Link from 'next/link';
 
 const fetchRepoContents = async (name: string) => {
-    const response = await fetch(`https://api.github.com/repos/jameyhart/${name}/contents`);
+    const response = await fetch(`https://api.github.com/repos/jameyhart/${name}/contents`, {
+        next: {
+            revalidate: 60 * 60 // Once an hour
+        }
+    });
     const contents = await response.json();
 
     return contents;
@@ -19,7 +23,9 @@ const RepoDirs = async ({ name }) => {
             <ul>
                 {dirs.map((dir) => (
                     <li key={dir.path}>
-                        <Link href={`/code/repos/${name}/${dir.path}`}>
+                        <Link href={
+                            `https://github.com/jameyhart/${name}/tree/master/${dir.path}`
+                        }>
                             {dir.path}
                         </Link>
                     </li>

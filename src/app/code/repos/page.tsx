@@ -1,10 +1,16 @@
+// @ts-nocheck
 import React from 'react';
 import Link from 'next/link';
 import { FaStar, FaCodeBranch, FaEye } from 'react-icons/fa';
 
 const fetchRepos = async () => {
-    const res = await fetch('https://api.github.com/users/jameyhart/repos');
+    const res = await fetch('https://api.github.com/users/jameyhart/repos', {
+        next: {
+            revalidate: 60 * 60 // Once an hour
+        }
+    });
     const repos = await res.json();
+
     return repos;
 };
 
