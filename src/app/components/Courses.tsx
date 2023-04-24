@@ -9,7 +9,7 @@ const fetchCourses = async () => {
 };
 
 type courseObject = {
-    id: number;
+    id: string;
     title: string;
     description: string;
     link: string;

@@ -1,3 +1,4 @@
+import { v4 as uuid4 } from 'uuid';
 import { NextResponse } from 'next/server';
 
 import courses from './data.json';
@@ -14,7 +15,15 @@ export const POST = async (request: Request) => {
         link
     } = await request.json();
 
-    console.log(title, description, level, link);
+    const newCourse = {
+        id: uuid4(),
+        title,
+        description,
+        level,
+        link
+    };
 
-    return NextResponse.json({ message: 'Course created.' });
+    courses.push(newCourse);
+
+    return NextResponse.json(courses);
 };
