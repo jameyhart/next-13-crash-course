@@ -45,6 +45,33 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Courses (With Search Query Param)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/courses/search?query=node",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"courses",
+						"search"
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "node"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
