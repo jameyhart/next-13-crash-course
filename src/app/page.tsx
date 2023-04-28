@@ -1,6 +1,7 @@
 'use client';
 import React, { useState, useEffect } from "react";
 
+import CourseSearch from "./components/CourseSearch";
 import Courses from "./components/Courses";
 import LoadingPage from "./loading";
 
@@ -27,6 +28,8 @@ const HomePage = () => {
     return (
         <>
             <h1>Welcome to Traversy Media</h1>
+            {/* @ts-ignore */}
+            <CourseSearch getSearchResults={(results) => setCourses(results)} />
             <Courses courses={courses} />
         </>
     );
